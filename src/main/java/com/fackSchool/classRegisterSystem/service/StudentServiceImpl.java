@@ -21,7 +21,7 @@ public class StudentServiceImpl implements StudentService {
 	
 	@Override
 	public List<student> findAll() {
-		return studentRepository.findAllByOrderByLastNameAsc();
+		return studentRepository.findAll();
 	}
 
 	@Override

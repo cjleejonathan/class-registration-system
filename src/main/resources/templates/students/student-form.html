@@ -2,83 +2,103 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
 
-	<title>Save Student</title>
+<title>Save Student</title>
 </head>
 
 <body>
 
-	<div class="container">
-	
-		<h3>Student</h3>
-		<hr>
-		
-		<p class="h4 mb-4">Register / Save</p>
-	
-		<form action="#" th:action="@{/students/save}"
-						 th:object="${student}" method="POST">
-		<div class="form-group">
-			<!-- Add hidden form field to handle update -->
-			<input type="hidden" th:field="*{id}" />
-			
-			<div class="form-inline">
-				<input type="text" th:field="*{firstName}"
-						class="form-control mb-4 col-4" placeholder="First name">
-			
-				<!-- Add error message (if present) -->
-				<span th:if="${#fields.hasErrors('firstName')}"
-					  th:errors="*{firstName}"
-					  class="badge badge-danger ml-2 mb-4"></span>
-			</div>
-			
-			<div class="form-inline">
-			
-				<input type="text" th:field="*{lastName}"
-						class="form-control mb-4 col-4" placeholder="Last name">
+	<section class="vh-100 bg-image"
+		style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.jpg');">
+		<div class="mask d-flex align-items-center h-100 gradient-custom-3">
+			<div class="container h-100">
+				<div
+					class="row d-flex justify-content-center align-items-center h-100">
+					<div class="col-12 col-md-9 col-lg-7 col-xl-6">
+						<div class="card" style="border-radius: 15px;">
+							<div class="card-body p-5">
+								<h2 class="text-uppercase text-center mb-5">Create an
+									account</h2>
 
-				<!-- Add error message (if present) -->
-				<span th:if="${#fields.hasErrors('lastName')}"
-					  th:errors="*{lastName}"
-					  class="badge badge-danger ml-2 mb-4"></span>
+
+
+								<form action="#" th:action="@{/students/save}"
+									th:object="${student}" method="POST">
+									<div class="form-group">
+										<!-- Add hidden form field to handle update -->
+										<input type="hidden" th:field="*{id}" />
+
+										<div class="form-outline mb-4">
+											<input type="text" th:field="*{firstName}"
+												class="form-control form-control-lg"
+												placeholder="First name">
+
+											<!-- Add error message (if present) -->
+											<span th:if="${#fields.hasErrors('firstName')}"
+												th:errors="*{firstName}"
+												class="form-control form-control-lg"></span>
+										</div>
+
+										<div class="form-outline mb-4">
+
+											<input type="text" th:field="*{lastName}"
+												class="form-control form-control-lg" placeholder="Last name">
+
+											<!-- Add error message (if present) -->
+											<span th:if="${#fields.hasErrors('lastName')}"
+												th:errors="*{lastName}" class="form-control form-control-lg"></span>
+										</div>
+
+										<div class="form-outline mb-4">
+
+											<input type="text" th:field="*{email}"
+												class="form-control form-control-lg" placeholder="Email">
+
+											<!-- Add error message (if present) -->
+											<span th:if="${#fields.hasErrors('email')}"
+												th:errors="*{email}" class="form-control form-control-lg"></span>
+										</div>
+
+										<div class="form-outline mb-4">
+
+											<input type="text" th:field="*{phone}"
+												class="form-control form-control-lg" placeholder="phone">
+
+											<!-- Add error message (if present) -->
+											<span th:if="${#fields.hasErrors('phone')}"
+												th:errors="*{phone}" class="form-control form-control-lg"></span>
+										</div>
+								
+										<div class="d-flex justify-content-center">
+											<button type="submit"
+												class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Save</button>
+										</div>
+									</div>
+									<p class="text-center text-muted mt-5 mb-0">
+										Have already an account? <a href="#!"
+											class="fw-bold text-body"><u>Login here</u></a>
+									</p>
+								</form>
+
+								<hr>
+								<a th:href="@{/students/list}">Back to Students List</a>
+
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			
-			<div class="form-inline">
-			
-				<input type="text" th:field="*{email}"
-						class="form-control mb-4 col-4" placeholder="Email">
-				
-				<!-- Add error message (if present) -->
-				<span th:if="${#fields.hasErrors('email')}"
-					  th:errors="*{email}"
-					  class="badge badge-danger ml-2 mb-4"></span>
-			</div>
-			
-			<div class="form-inline">
-			
-				<input type="text" th:field="*{phone}"
-						class="form-control mb-4 col-4" placeholder="phone">
-				
-				<!-- Add error message (if present) -->
-				<span th:if="${#fields.hasErrors('phone')}"
-					  th:errors="*{phone}"
-					  class="badge badge-danger ml-2 mb-4"></span>
-			</div>
-							
-			<button type="submit" class="btn btn-info col-2">Save</button>
-			
-			</div>			
-		</form>
-	
-		<hr>
-		<a th:href="@{/students/list}">Back to Students List</a>
-		
-	</div>
+		</div>
 </body>
 
 </html>
