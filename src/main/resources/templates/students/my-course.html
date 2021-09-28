@@ -89,47 +89,39 @@ li a:hover {
 
 	<hr>
 
-	<!-- Add a search form -->
-
-	<form action="#" th:action="@{/students/search}" method="GET"
+	<form action="#" th:action="@{/register/list}" method="GET"
 		class="form-inline">
 
-		<!-- Add a button -->
-		<a th:href="@{/students/showFormForAdd}"
-			class="btn btn-primary btn-sm mb-3"> Add student </a> <input
-			type="search" name="firstName" placeholder="First name"
-			class="form-control-sm ml-1 mr-2 mb-3" /> <input type="search"
-			name="lastName" placeholder="Last name"
-			class="form-control-sm mr-2 mb-3" />
-
-		<button type="submit" class="btn btn-success btn-sm mb-3">Search</button>
+		<input type="search" name="email" placeholder="Student Email"class="form-control-sm ml-1 mr-2 mb-3" /> 
+		<button type="submit" class="btn btn-success btn-rounded btn-sm mb-3">Search</button>
 
 	</form>
+
+
+
 	<table class="table table-bordered table-striped">
 		<thead class="thead-dark">
 			<tr>
-				<th>Student_id</th>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>Email</th>
-				<th>Phone</th>
-
+				<th>Number</th>
+				<th>Student Email</th>
+				<th>Course Id</th>
 			</tr>
 		</thead>
 
 		<tbody>
-			<tr th:each="tempStudent : ${students}">
+			<tr th:each="tempRegister : ${register}">
 
-				<td th:text="${tempStudent.id}" />
-				<td th:text="${tempStudent.firstName}" />
-				<td th:text="${tempStudent.lastName}" />
-				<td th:text="${tempStudent.email}" />
-				<td th:text="${tempStudent.phone}" />
+				<td th:text="${tempRegister.number}" />
+				<td th:text="${tempRegister.email}" />
+				<td th:text="${tempRegister.id}" />
+				
+
 
 			</tr>
 		</tbody>
+
 	</table>
-	</div>
+
 
 
 </body>
