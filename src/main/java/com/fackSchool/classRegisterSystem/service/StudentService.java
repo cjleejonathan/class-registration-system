@@ -2,17 +2,17 @@ package com.fackSchool.classRegisterSystem.service;
 
 import java.util.List;
 
-import com.fackSchool.classRegisterSystem.entity.student;
+import com.fackSchool.classRegisterSystem.entity.Student;
 
 public interface StudentService {
 
-	public List<student> findAll();
+	public List<Student> findAll();
 	
-	public student findById(int theId);
+	public Student findById(int theId);
 	
-	public void save(student theStudent);
+	public void save(Student theStudent);
 	
 	public void deleteById(int theId);
 	
-	public List<student> serchBy(String theFirstName, String theLastName);
+	public List<Student> serchBy(String theFirstName, String theLastName);
 }

@@ -71,65 +71,63 @@ li a:hover {
 
 	<ul>
 		<li><a href="/home">Home</a></li>
-		<li><a class="active" href="/students/list">Students list</a></li>
-		<li><a href="/courses/list">Courses list</a></li>
+		<li><a href="/students/list">Students list</a></li>
+		<li><a class="active" href="/courses/list">Courses list</a></li>
 		<li><a href="/register/list">My course</a></li>
-		<lr>
-		<a>
+		<lr> <a>
 			<form th:action="@{/logout}" method="post">
 				<li><input type="submit" value="Logout" /></li>
 
 			</form>
 		</a></lr>
 
-		<lr>
-		<span class="hidden-xs" sec:authentication="name"></span></lr>
+		<lr> <span class="hidden-xs" sec:authentication="name"></span></lr>
 		<lr>Student: </span></lr>
 	</ul>
 
-	<hr>
+	<div id="header"></div>
 
+	<hr>
 	<!-- Add a search form -->
 
-	<form action="#" th:action="@{/students/search}" method="GET"
+	<form action="#" th:action="@{/courses/search}" method="GET"
 		class="form-inline">
 
-		<!-- Add a button -->
-		<a th:href="@{/students/showFormForAdd}"
-			class="btn btn-primary btn-sm mb-3"> Add student </a> <input
-			type="search" name="firstName" placeholder="First name"
+		<a th:href="@{/register/showFormForAdd}"
+			class="btn btn-primary btn-sm mb-3"> Register Course </a> <input
+			type="search" name="id" placeholder="Course id"
 			class="form-control-sm ml-1 mr-2 mb-3" /> <input type="search"
-			name="lastName" placeholder="Last name"
+			name="courseName" placeholder="Course name"
 			class="form-control-sm mr-2 mb-3" />
 
-		<button type="submit" class="btn btn-success btn-sm mb-3">Search</button>
+		<button type="submit" class="btn btn-success btn-rounded btn-sm mb-3">Search</button>
 
 	</form>
+
+
+
 	<table class="table table-bordered table-striped">
 		<thead class="thead-dark">
 			<tr>
-				<th>Student_id</th>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>Email</th>
-				<th>Phone</th>
-
+				<th>Course_id</th>
+				<th>Course Name</th>
+				<th>Proffesor</th>
 			</tr>
 		</thead>
 
 		<tbody>
-			<tr th:each="tempStudent : ${students}">
+			<tr th:each="tempCourse : ${courses}">
 
-				<td th:text="${tempStudent.id}" />
-				<td th:text="${tempStudent.firstName}" />
-				<td th:text="${tempStudent.lastName}" />
-				<td th:text="${tempStudent.email}" />
-				<td th:text="${tempStudent.phone}" />
+				<td th:text="${tempCourse.id}" />
+				<td th:text="${tempCourse.courseName}" />
+				<td th:text="${tempCourse.Proffesor}" />
+
 
 			</tr>
 		</tbody>
+
 	</table>
-	</div>
+
 
 
 </body>

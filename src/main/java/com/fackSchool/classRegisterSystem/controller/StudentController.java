@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.fackSchool.classRegisterSystem.entity.student;
+import com.fackSchool.classRegisterSystem.entity.Student;
 import com.fackSchool.classRegisterSystem.service.StudentService;
 
 @Controller
@@ -32,7 +32,7 @@ public class StudentController {
 	public String listStudents(Model theModel) {
 		
 		// get students from db
-		List<student> theStudent = studentService.findAll();
+		List<Student> theStudent = studentService.findAll();
 		
 		// add to spring model
 		theModel.addAttribute("students", theStudent);
@@ -44,7 +44,7 @@ public class StudentController {
 	public String showFormForAdd(Model theModel) {
 		
 		// create model attribute to bind form data
-		student theStudent = new student();
+		Student theStudent = new Student();
 		
 		theModel.addAttribute("student", theStudent);
 		
@@ -56,7 +56,7 @@ public class StudentController {
 									Model theModel) {
 		
 		// get the student from the service
-		student theStudent = studentService.findById(theId);
+		Student theStudent = studentService.findById(theId);
 		
 		// set student as a model attribute to pre-populate the form
 		theModel.addAttribute("student", theStudent);
@@ -68,7 +68,7 @@ public class StudentController {
 	
 	@PostMapping("/save")
 	public String saveStudent(
-			@ModelAttribute("student") @Valid student theStudent,
+			@ModelAttribute("student") @Valid Student theStudent,
 			BindingResult bindingResult) {
 		
 		if(bindingResult.hasErrors()) {		
@@ -108,7 +108,7 @@ public class StudentController {
 		}
 		else {	
 			// else, search by first name and last name
-			List<student> theStudent = 
+			List<Student> theStudent = 
 							studentService.serchBy(theFirstName, theLastName);
 			
 			// add to the spring model

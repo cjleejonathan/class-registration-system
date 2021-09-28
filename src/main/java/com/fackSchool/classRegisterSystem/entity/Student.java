@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="student_info")
-public class student {
+public class Student {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -27,24 +27,31 @@ public class student {
 	@Column(name="phone")
 	private String phone;
 
-	public student() {
+	@Column(name="password")
+	private String password;
+	
+	public Student() {
 		
 	}
 
-	public student(int id, String firstName, String lastName, String email, String phone, String address) {
+	public Student(String firstName, String lastName, String email, String phone, String password) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+		this.password = password;
+	}
+
+	public Student(int id, String firstName, String lastName, String email, String phone, String password) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.phone = phone;
+		this.password = password;
 	}
 
-	public student(String firstName, String lastName, String email, String phone, String address) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.phone = phone;
-	}
+	
 
 	public int getId() {
 		return id;
@@ -86,11 +93,21 @@ public class student {
 		this.phone = phone;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Override
 	public String toString() {
-		return "student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", phone=" + phone + "]";
+		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", phone=" + phone + ", password=" + password + "]";
 	}
+
+	
 
 	
 	
