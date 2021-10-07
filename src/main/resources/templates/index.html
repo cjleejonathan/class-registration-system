@@ -13,6 +13,23 @@
 	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
 	crossorigin="anonymous">
 <style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("img/photo-1506102383123-c8ef1e872756.png");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 body {
 	font-size: 28px;
 }
@@ -64,7 +81,7 @@ li a:hover {
 	<!-- header -->
 	<div class="header">
 		<!-- header to do -->
-		To Do
+		<img src="img/animals-2222007_1920.jpg" width="100%" height="200px">
 	</div>
 
 	<ul>
@@ -84,13 +101,7 @@ li a:hover {
 		<span class="hidden-xs" sec:authentication="name"></span></lr>
 		<lr>Student: </span></lr>
 	</ul>
-
-	<hr>
-	
-	<hr>
-	<h1>To Do YOOOOOOOOOOO HOOOOOOOOOOO!</h1>
-	<hr>
-	
+	<div class="bg"></div>
 </body>
 
 </html>
